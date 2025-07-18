@@ -16,7 +16,7 @@ enum SecurityLevel
 }
 
 
-
+#region Q1
 class Employee
 {
     public int ID { get; set; }
@@ -57,7 +57,31 @@ class Employee
     }
 }
 
+#endregion
 
+#region Q2
+
+class HiringDate
+{
+    public int Day { get; set; }
+    public int Month { get; set; }
+    public int Year { get; set; }
+
+    public HiringDate(int day, int month, int year)
+    {
+        if (day < 1 || day > 31 || month < 1 || month > 12 || year < 1900)
+            throw new ArgumentException("Invalid date.");
+        Day = day;
+        Month = month;
+        Year = year;
+    }
+
+    public override string ToString()
+    {
+        return $"{Day:D2}/{Month:D2}/{Year}";
+    }
+}
+#endregion
 class Program
 {
     static void Main()
